@@ -6,7 +6,7 @@ this module implement task class
 import json
 
 class Task():
-	"""this class models 'tasks' from 'TASK' API""""
+	"""this class models 'tasks' from 'TASK' API"""
 	def __init__(self, title, description, task_id=None, status=False, uri=None):
 		self.id = task_id
 		self.title = title
