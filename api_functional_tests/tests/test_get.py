@@ -14,7 +14,7 @@ from config import DEFAULT_PASSWORD as PASSWORD
 from config import DEFAULT_USERNAME as USERNAME
 
 def parametrize_id():
-	return pytest.mark.parametrize("task_id, task_title", [(1, 'Buy groceries'), (2, 'Lear Python'), (3, 'Lear Jave')],
+	return pytest.mark.parametrize("task_id, expected_title", [(1, 'Buy groceries'), (2, 'Learn Python'), (3, 'Learn Java8')],
 			ids=['First task', 'Second task', 'Third task'])
 
 class TestGetMethod:
@@ -24,5 +24,5 @@ class TestGetMethod:
 
 	@parametrize_id()
 	def test_get_task(self, task_id, expected_title):
-		actual_task = self.task_handler.get_task(task_id=task_id, username=USERNAME, password=PASSWORD)
+		actual_task = self.task_handler.get_tasks(task_id=task_id, username=USERNAME, password=PASSWORD)
 		assert actual_task.title == expected_title, 'Invalid title'
